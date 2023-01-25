@@ -20,7 +20,7 @@ class MaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
             builder: builder,
             maintainState: maintainState);
 
-  ModalBottomSheetRoute? _nextModalRoute;
+  ModalBottomSheetRouteLibrary? _nextModalRoute;
 
   @override
   bool canTransitionTo(TransitionRoute<dynamic> nextRoute) {
@@ -29,12 +29,12 @@ class MaterialWithModalsPageRoute<T> extends MaterialPageRoute<T> {
         (nextRoute is CupertinoPageRoute && !nextRoute.fullscreenDialog) ||
         (nextRoute is MaterialWithModalsPageRoute &&
             !nextRoute.fullscreenDialog) ||
-        (nextRoute is ModalBottomSheetRoute);
+        (nextRoute is ModalBottomSheetRouteLibrary);
   }
 
   @override
   void didChangeNext(Route? nextRoute) {
-    if (nextRoute is ModalBottomSheetRoute) {
+    if (nextRoute is ModalBottomSheetRouteLibrary) {
       _nextModalRoute = nextRoute;
     }
 

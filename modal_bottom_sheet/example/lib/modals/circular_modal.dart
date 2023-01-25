@@ -98,7 +98,7 @@ Future<T?> showAvatarModalBottomSheet<T>({
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
   final result = await Navigator.of(context, rootNavigator: useRootNavigator)
-      .push(ModalBottomSheetRoute<T>(
+      .push(ModalBottomSheetRouteLibrary<T>(
     builder: builder,
     containerBuilder: (_, animation, child) => AvatarBottomSheet(
       child: child,

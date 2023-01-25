@@ -114,7 +114,7 @@ Future<T?> showCupertinoModalBottomSheet<T>({
 
   final result =
       await Navigator.of(context, rootNavigator: useRootNavigator).push(
-    CupertinoModalBottomSheetRoute<T>(
+    CupertinoModalBottomSheetRouteLibrary<T>(
         builder: builder,
         containerBuilder: (context, _, child) => _CupertinoBottomSheetContainer(
               child: child,
@@ -144,7 +144,7 @@ Future<T?> showCupertinoModalBottomSheet<T>({
   return result;
 }
 
-class CupertinoModalBottomSheetRoute<T> extends ModalBottomSheetRoute<T> {
+class CupertinoModalBottomSheetRouteLibrary<T> extends ModalBottomSheetRouteLibrary<T> {
   final Radius topRadius;
 
   final Curve? previousRouteAnimationCurve;
@@ -156,7 +156,7 @@ class CupertinoModalBottomSheetRoute<T> extends ModalBottomSheetRoute<T> {
   final Color? transitionBackgroundColor;
   final SystemUiOverlayStyle? overlayStyle;
 
-  CupertinoModalBottomSheetRoute({
+  CupertinoModalBottomSheetRouteLibrary({
     required WidgetBuilder builder,
     WidgetWithChildBuilder? containerBuilder,
     double? closeProgressThreshold,
@@ -452,7 +452,7 @@ class CupertinoScaffold extends StatefulWidget {
     }
     final topRadius = CupertinoScaffold.of(context)!.topRadius;
     final result = await Navigator.of(context, rootNavigator: useRootNavigator)
-        .push(CupertinoModalBottomSheetRoute<T>(
+        .push(CupertinoModalBottomSheetRouteLibrary<T>(
       closeProgressThreshold: closeProgressThreshold,
       builder: builder,
       secondAnimationController: CupertinoScaffold.of(context)!.animation,
